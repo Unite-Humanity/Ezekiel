@@ -1,7 +1,10 @@
-import pubsub from '../../database/pubsub'
+const pubsub = require('../../database/pubsub')
+
+const physica = require('./physics')
 
 setInterval(() => {
   pubsub.publish('UPDATE_TIME', { time: new Date().toISOString() })
-}, 1000)
+  physica(100)
+}, 100)
 
 console.log('Ezekiel spacetime launched')

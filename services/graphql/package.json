@@ -1,15 +1,14 @@
 {
   "name": "graphql",
-  "type": "module",
   "private": true,
   "version": "0.0.0",
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "start": "node --es-module-specifier-resolution=node src/index.js",
+    "start": "node src/index.js",
     "start:watch": "nodemon",
-    "dev": "node --es-module-specifier-resolution=node scripts/printSchema.js",
+    "dev": "node scripts/printSchema.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",

@@ -19,6 +19,10 @@
     "eslint-plugin-react-hooks": "^4.2.0"
   },
   "templates": {
-    "redis": "docker pull redis && docker run -p 6379:6379 --name redis -d redis"
+    "redis": "docker pull redis && docker run --name redis -p 6379:6379 -d redis",
+    "mysql": "docker pull mysql && docker run --name mysq -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=ezekiel -d mysql:latest",
+    "new-migration": "npx sequelize-cli migration:generate --name add-x",
+    "new-model": "npx sequelize-cli model:generate --name Xyz --attributes x:string",
+    "new-seeder": "npx sequelize-cli seed:generate --name foo"
   }
 }

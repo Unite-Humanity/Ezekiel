@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /* eslint-disable import/no-extraneous-dependencies */
-import fs from 'fs'
+const fs = require('fs')
 
-import fetch from 'node-fetch'
-import { getIntrospectionQuery } from 'graphql'
-import { getIntrospectedSchema, minifyIntrospectionQuery } from '@urql/introspection'
+const fetch = require('node-fetch')
+const { getIntrospectionQuery } = require('graphql')
+const { getIntrospectedSchema, minifyIntrospectionQuery } = require('@urql/introspection')
 
-import { developmentPort } from '../src/configuration'
+const { developmentPort } = require('../src/configuration')
 
 const url = `http://localhost:${developmentPort}`
 

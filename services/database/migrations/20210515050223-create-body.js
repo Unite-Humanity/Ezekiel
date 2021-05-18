@@ -1,36 +1,28 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('PhysicalLocalities', {
+    const keys = ['a', 'b', 'c', 'd', 'e']
+    const position = {}
+
+    keys.forEach(key => {
+      position[key] = { type: Sequelize.FLOAT }
+      position[`d${key}`] = { type: Sequelize.FLOAT }
+      position[`dd${key}`] = { type: Sequelize.FLOAT }
+    })
+
+    await queryInterface.createTable('Bodies', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      x: {
-        type: Sequelize.FLOAT,
-      },
-      y: {
-        type: Sequelize.FLOAT,
-      },
-      dx: {
-        type: Sequelize.FLOAT,
-      },
-      dy: {
-        type: Sequelize.FLOAT,
-      },
-      ddx: {
-        type: Sequelize.FLOAT,
-      },
-      ddy: {
+      mass: {
         type: Sequelize.FLOAT,
       },
       radius: {
         type: Sequelize.FLOAT,
       },
-      mass: {
-        type: Sequelize.FLOAT,
-      },
+      ...position,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -42,6 +34,6 @@ module.exports = {
     })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('PhysicalLocalities')
+    await queryInterface.dropTable('Bodies')
   },
 }

@@ -1,7 +1,7 @@
-import Redis from 'ioredis'
-import { RedisPubSub } from 'graphql-redis-subscriptions'
+const Redis = require('ioredis')
+const { RedisPubSub } = require('graphql-redis-subscriptions')
 
-import { redisHost, redisPort } from './configuration'
+const { redisHost, redisPort } = require('./configuration')
 
 const options = {
   host: redisHost,
@@ -9,7 +9,7 @@ const options = {
   retryStrategy: times => Math.min(times * 50, 2000),
 }
 
-export default new RedisPubSub({
+module.exports = new RedisPubSub({
   publisher: new Redis(options),
   subscriber: new Redis(options),
 })

@@ -1,9 +1,13 @@
-export const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production'
 
-export const redisHost = isProduction
-  ? 'https://redis.ezekiel'
-  : 'localhost'
+module.exports = {
+  isProduction,
 
-export const redisPort = isProduction
-  ? 6379
-  : 6379
+  redisHost: isProduction
+    ? 'https://redis.ezekiel'
+    : 'localhost',
+
+  redisPort: isProduction
+    ? 6379
+    : 6379,
+}

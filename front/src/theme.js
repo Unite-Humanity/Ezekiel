@@ -1,3 +1,4 @@
+import lightBlue from '@material-ui/core/colors/lightBlue'
 import blue from '@material-ui/core/colors/blue'
 import green from '@material-ui/core/colors/green'
 import grey from '@material-ui/core/colors/grey'
@@ -11,6 +12,7 @@ const theme = createMuiTheme({
   palette: {
     primary: indigo,
     secondary: red,
+    lightBlue,
     blue,
     indigo,
     green,

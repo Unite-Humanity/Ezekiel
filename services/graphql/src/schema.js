@@ -1,24 +1,38 @@
-import { gql } from 'apollo-server'
+const { gql } = require('apollo-server')
 
-export default gql`
-type PhysicalLocality {
+module.exports = gql`
+type Body {
   id: ID
+  parentId: ID
   mass: Float
   radius: Float
-  x: Float
-  y: Float
-  dx: Float
-  dy: Float
-  ddx: Float
-  ddy: Float
+  a: Float
+  b: Float
+  c: Float
+  d: Float
+  e: Float
+  da: Float
+  db: Float
+  dc: Float
+  dd: Float
+  de: Float
+  dda: Float
+  ddb: Float
+  ddc: Float
+  ddd: Float
+  dde: Float
 }
 
 type Query {
-  physicalLocalities: [PhysicalLocality]
+  env: String
+}
+
+type Mutation {
+  resetBodies: Boolean!
 }
 
 type Subscription {
-  physicalLocality: PhysicalLocality
+  body: Body
   time: String
 }
 `

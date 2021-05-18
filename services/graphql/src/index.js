@@ -1,23 +1,55 @@
-import { ApolloServer } from 'apollo-server'
+const { ApolloServer } = require('apollo-server')
 
-import pubsub from '../../database/pubsub'
+const db = require('../../database/pubsub')
+const pubsub = require('../../database/pubsub')
 
-import schema from './schema'
+const { developmentPort } = require('./configuration')
 
-import { developmentPort } from './configuration'
+const schema = require('./schema')
 
 const port = process.env.PORT || developmentPort
 
 const resolvers = {
   Query: {
-    physicalLocalities: () => [],
+    env: () => process.env.NODE_ENV,
+  },
+  Mutation: {
+    async resetBodies() {
+      const keys = ['a', 'b', 'c', 'd', 'e']
+      const emptyPos = {}
+
+      keys.forEach(key => {
+        emptyPos[key] = 0
+        emptyPos[`d${key}`] = 0
+        emptyPos[`dd${key}`] = 0
+      })
+
+      await db.Body.update({
+        id: 1,
+        ...emptyPos,
+      })
+      await db.Body.update({
+        id: 2,
+        ...emptyPos,
+        e: -256,
+      })
+      await db.Body.update({
+        id: 3,
+        ...emptyPos,
+        e: 256,
+      })
+
+      console.log('reseted')
+
+      return true
+    },
   },
   Subscription: {
     time: {
       subscribe: () => pubsub.asyncIterator(['UPDATE_TIME']),
     },
-    physicalLocality: {
-      subscribe: () => pubsub.asyncIterator(['UPDATE_PHYSICAL_LOCALITY']),
+    body: {
+      subscribe: () => pubsub.asyncIterator(['UPDATE_BODY']),
     },
   },
 }

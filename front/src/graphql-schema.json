@@ -3,17 +3,27 @@
     "queryType": {
       "name": "Query"
     },
-    "mutationType": null,
+    "mutationType": {
+      "name": "Mutation"
+    },
     "subscriptionType": {
       "name": "Subscription"
     },
     "types": [
       {
         "kind": "OBJECT",
-        "name": "PhysicalLocality",
+        "name": "Body",
         "fields": [
           {
             "name": "id",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "parentId",
             "type": {
               "kind": "SCALAR",
               "name": "Any"
@@ -37,7 +47,7 @@
             "args": []
           },
           {
-            "name": "x",
+            "name": "a",
             "type": {
               "kind": "SCALAR",
               "name": "Any"
@@ -45,7 +55,7 @@
             "args": []
           },
           {
-            "name": "y",
+            "name": "b",
             "type": {
               "kind": "SCALAR",
               "name": "Any"
@@ -53,7 +63,7 @@
             "args": []
           },
           {
-            "name": "dx",
+            "name": "c",
             "type": {
               "kind": "SCALAR",
               "name": "Any"
@@ -61,7 +71,7 @@
             "args": []
           },
           {
-            "name": "dy",
+            "name": "d",
             "type": {
               "kind": "SCALAR",
               "name": "Any"
@@ -69,7 +79,7 @@
             "args": []
           },
           {
-            "name": "ddx",
+            "name": "e",
             "type": {
               "kind": "SCALAR",
               "name": "Any"
@@ -77,7 +87,79 @@
             "args": []
           },
           {
-            "name": "ddy",
+            "name": "da",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "db",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "dc",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "dd",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "de",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "dda",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "ddb",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "ddc",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "ddd",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          },
+          {
+            "name": "dde",
             "type": {
               "kind": "SCALAR",
               "name": "Any"
@@ -92,12 +174,27 @@
         "name": "Query",
         "fields": [
           {
-            "name": "physicalLocalities",
+            "name": "env",
             "type": {
-              "kind": "LIST",
+              "kind": "SCALAR",
+              "name": "Any"
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Mutation",
+        "fields": [
+          {
+            "name": "resetBodies",
+            "type": {
+              "kind": "NON_NULL",
               "ofType": {
-                "kind": "OBJECT",
-                "name": "PhysicalLocality"
+                "kind": "SCALAR",
+                "name": "Any"
               }
             },
             "args": []
@@ -110,10 +207,10 @@
         "name": "Subscription",
         "fields": [
           {
-            "name": "physicalLocality",
+            "name": "body",
             "type": {
               "kind": "OBJECT",
-              "name": "PhysicalLocality"
+              "name": "Body"
             },
             "args": []
           },

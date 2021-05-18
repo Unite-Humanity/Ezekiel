@@ -1,15 +1,24 @@
 {
   "name": "spacetime",
-  "type": "module",
   "version": "0.0.0",
   "private": true,
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --es-module-specifier-resolution=node src/index.js",
+    "test": "node scripts/test-physica.js",
+    "test:watch": "nodemon --exec npm test",
+    "dev": "npm run test:watch",
+    "start": "node src/index.js",
     "start:watch": "nodemon"
+  },
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "assets": "../database/**/*",
+    "targets": [
+      "node14-linux-arm64"
+    ],
+    "outputPath": "dist"
   },
   "author": "",
   "license": "MIT",

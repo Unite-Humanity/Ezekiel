@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 
 import DataSubscriber from './components/DataSubscriber'
 import Timer from './components/Timer'
-import PhysicalLocalities from './PhysicalLocalities'
+import Space from './Space'
 
 import store from './state'
 import client from './client'
@@ -20,14 +20,14 @@ function App() {
       <StateProvider store={store}>
         <GraphQLProvider value={client}>
           <DataSubscriber />
+          <Timer />
           <BrowserRouter>
             <Switch>
               <Route
                 exact
                 path="/"
               >
-                <Timer />
-                <PhysicalLocalities />
+                <Space />
               </Route>
               <Route path="*">
                 Not found.
